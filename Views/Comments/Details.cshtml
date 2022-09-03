@@ -1,0 +1,49 @@
+﻿@model Travel.Comment
+
+@{
+    ViewBag.Title = "Details";
+}
+@{
+    ViewBag.Title = "Create";
+    ViewBag.isLogIn = false;
+    ViewBag.isSignUp = false;
+    ViewBag.isHome = false;
+    ViewBag.isAbout = false;
+    ViewBag.isContact = false;
+}
+<h2>Details</h2>
+
+<div>
+    <h4>Comment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.commentDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.commentDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Post.postTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Post.postTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.userName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.userName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.commentId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

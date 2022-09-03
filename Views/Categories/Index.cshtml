@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Travel.Category>
+
+@{
+    ViewBag.Title = "Index";
+}
+@{
+    ViewBag.Title = "Create";
+    ViewBag.isLogIn = false;
+    ViewBag.isSignUp = false;
+    ViewBag.isHome = false;
+    ViewBag.isAbout = false;
+    ViewBag.isContact = false;
+}
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.catName)
+        </th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.catName)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", new { id = item.catId })" class="btn btn-success">Edit</a>
+                <a href="@Url.Action("Details", new { id = item.catId })" class="btn btn-primary">Details</a>
+                <a href="@Url.Action("Delete", new { id = item.catId })" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>

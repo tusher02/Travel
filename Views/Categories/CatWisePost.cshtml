@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "CatWisePost";
+}
+
+<h2>Category Wise Post list</h2>
+
+
+@*@{
+        foreach(var post in @ViewBag.allPost)
+        {
+            <h2>@post.postTitle</h2>
+            <p>@post.postDesc</p>
+        }
+    }*@
+<table class="table">
+
+        @foreach (var post in @ViewBag.allPost)
+        {
+
+            <tr>
+                <td>
+                    <b style="color: red; font-size: large">@post.postTitle</b>
+                    <p>@post.postDesc</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    @*<a href="~/Posts/streetFood">Read full article..</a>*@
+                    <a href="@Url.Action("streetFood", "Posts", new {id = post.postId})">Read full article..</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Category: @ViewBag.catName
+
+                    @*<a href="@Url.Action("Edit", "Posts", new { id = post.postId })" class="btn btn-success">Edit</a>*@
+                    <a href="@Url.Action("Details", "Posts", new { id = post.postId})" class="btn btn-primary">Details</a>
+                    <a href="@Url.Action("Delete", "Posts", new { id = post.postId })" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+</table>
+
+

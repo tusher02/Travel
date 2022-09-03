@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Travel.User>
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag.isLogIn = false;
+    ViewBag.isSignUp = false;
+    ViewBag.isHome = false;
+    ViewBag.isAbout = false;
+    ViewBag.isContact = false;
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.userName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userPass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userCountry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userRole)
+        </th>
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.userName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userPass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userCountry)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userRole)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit", new { id = item.userId })" class="btn btn-success">Edit</a>
+            <a href="@Url.Action("Details", new { id = item.userId })" class="btn btn-primary">Details</a>
+            <a href="@Url.Action("Delete", new { id = item.userId })" class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+}
+
+</table>

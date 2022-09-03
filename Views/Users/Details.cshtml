@@ -1,0 +1,63 @@
+﻿@model Travel.User
+
+@{
+    ViewBag.Title = "Details";
+    ViewBag.isLogIn = false;
+    ViewBag.isSignUp = false;
+    ViewBag.isHome = false;
+    ViewBag.isAbout = false;
+    ViewBag.isContact = false;
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.userName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.userEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.userPass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userPass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.userCountry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userCountry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.userRole)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userRole)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.userId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "streetFood";
+}
+@{
+    ViewBag.Title = "Create";
+    ViewBag.isLogIn = false;
+    ViewBag.isSignUp = false;
+    ViewBag.isHome = false;
+    ViewBag.isAbout = false;
+    ViewBag.isContact = false;
+}
+@*<h2>streetFood</h2>*@
+@*<h3>@ViewBag.postTitle</h3>
+<h3>@ViewBag.postDesc</h3>*@
+@{
+    Html.RenderPartial("_PostPartialView");
+}
+

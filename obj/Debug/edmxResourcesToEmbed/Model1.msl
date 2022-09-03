@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TravelModelStoreContainer" CdmEntityContainer="TravelEntities">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="TravelModel.Category">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="catId" ColumnName="catId" />
+          <ScalarProperty Name="catName" ColumnName="catName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posts">
+      <EntityTypeMapping TypeName="TravelModel.Post">
+        <MappingFragment StoreEntitySet="Posts">
+          <ScalarProperty Name="postId" ColumnName="postId" />
+          <ScalarProperty Name="postTitle" ColumnName="postTitle" />
+          <ScalarProperty Name="postDesc" ColumnName="postDesc" />
+          <ScalarProperty Name="catId" ColumnName="catId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="TravelModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+          <ScalarProperty Name="userPass" ColumnName="userPass" />
+          <ScalarProperty Name="userCountry" ColumnName="userCountry" />
+          <ScalarProperty Name="userRole" ColumnName="userRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="TravelModel.Comment">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="postId" ColumnName="postId" />
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="commentDesc" ColumnName="commentDesc" />
+          <ScalarProperty Name="commentId" ColumnName="commentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

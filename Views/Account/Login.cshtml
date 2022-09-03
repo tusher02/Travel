@@ -1,0 +1,64 @@
+﻿@model Travel.User
+
+@{
+    ViewBag.Title = "Login";
+    //ViewBag.isLogIn = false;
+}
+<style>
+    #userPass {
+        width: 100%;
+        padding: 5px;
+    }
+</style>
+<h2>Login</h2>
+@*@{
+    TravelEntities db = new TravelEntities();
+    var usersId = db.Database.SqlQuery<NonEntityUser>("Select userId from Users where userName = user");
+
+    <h1>@usersId</h1>;
+
+    //IEnumerable<Post> postList = db.Posts.SqlQuery("Select * from Posts where userId = " + usersId);
+}*@
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>User</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.userName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.userName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.userName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.userPass, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.PasswordFor(model => model.userPass, new { htmlAttributes = new { @class = "form-control", @id = "userPass" } })
+                @Html.ValidationMessageFor(model => model.userPass, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.userRole, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.userRole, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.userRole, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Login" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Click to signup", "Signup")
+</div>

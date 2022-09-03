@@ -1,0 +1,97 @@
+﻿<head>
+    @*@import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Hind&display=swap');*@
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .fa {
+            padding: 10px;
+            font-size: 12px;
+            width: 30px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+            border-radius: 50%;
+        }
+
+            .fa:hover {
+                opacity: 1;
+            }
+
+        .fa-facebook {
+            background: #3B5998;
+            color: white;
+        }
+
+        .fa-linkedin {
+            background: #007bb5;
+            color: white;
+        }
+
+        .fa-instagram {
+            background: #125688;
+            color: white;
+        }
+
+        .fa-reddit {
+            background: #ff5700;
+            color: white;
+        }
+    </style>
+</head>
+
+<style>
+</style>
+@*onsubmit="event.preventDefault();"*@
+
+<form role="search" id="formSearch" action="/Search/Index" method="post">
+    <label for="search">Search for stuff</label>
+    <br />
+    <input name="search" id="search" type="search" placeholder="Search..." autofocus required />
+    <button type="submit" id="submitSearch" name="Search">Go</button>
+</form>
+
+<br />
+<h3>Category</h3>
+@{
+    using (var context = new TravelEntities())
+    {
+        foreach (var cat in context.Categories.ToList())
+        {
+            <p style="color:red;">@cat.catName</p>
+        }
+    }
+}
+<br />
+<h3>Recent Posts</h3>
+@{
+    int i = 0;
+    using (var context = new TravelEntities())
+    {
+        foreach (var post in context.Posts.ToList())
+        {
+            if (i > 4)
+            {
+                break;
+            }
+            <p style="color:red;">@post.postTitle</p>
+            i++;
+        }
+    }
+}
+<br />
+<h3>Follow us on</h3>
+<div class="social-container">
+    @*<ul class="social-icons">
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fa fa-codepen"></i></a></li>
+        </ul>*@
+    <a href="#" class="fa fa-facebook"></a>
+    <a href="#" class="fa fa-linkedin"></a>
+    <a href="#" class="fa fa-instagram"></a>
+    <a href="#" class="fa fa-reddit"></a>
+
+</div>

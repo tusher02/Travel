@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Travel.User>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>user list partial view</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.userName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userPass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userCountry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userRole)
+        </th>
+        <th>Action</th>
+    </tr>
+    @{
+        using (var context = new TravelEntities())
+        {
+            foreach (var item in context.Users.ToList())
+            {
+                <tr>
+                    <td>@item.userName</td>
+                    <td>@item.userEmail</td>
+                    <td>@item.userPass</td>
+                    <td>@item.userCountry</td>
+                    <td>@item.userRole</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Users", new { id = item.userId })" class="btn btn-success">Edit</a>
+                        <a href="@Url.Action("Details", "Users", new { id = item.userId })" class="btn btn-primary">Details</a>
+                        <a href="@Url.Action("Delete", "Users", new { id = item.userId })" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    }
+
+</table>

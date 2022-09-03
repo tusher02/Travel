@@ -1,0 +1,30 @@
+﻿@*<h3>Description..</h3>*@
+
+<h2>@ViewBag.postTitle</h2>
+<p>@ViewBag.postDesc</p>
+
+@*comment*@
+
+@*<form action="" method="post">
+        <div>
+    <textarea name="comments" id="comments" style="font-family:sans-serif;font-size:1.2em;">
+    Hey... say something!
+    </textarea>
+        </div>
+        <input type="submit" value="Submit">
+    </form>*@
+
+@*@{
+        Html.RenderPartial("_CommentPostPartialView");
+    }*@
+<br />
+<br />
+<br />
+<br />
+<br />
+<div>
+    @Html.ActionLink("Post a comment..", "Create", "Comments")
+</div>
+<div>
+    @Html.ActionLink("show all commets..", "Index", "Comments")
+</div>

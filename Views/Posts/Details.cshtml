@@ -1,0 +1,65 @@
+﻿@model Travel.Post
+
+@{
+    ViewBag.Title = "Details";
+}
+@{
+    ViewBag.Title = "Create";
+    ViewBag.isLogIn = false;
+    ViewBag.isSignUp = false;
+    ViewBag.isHome = false;
+    ViewBag.isAbout = false;
+    ViewBag.isContact = false;
+}
+<h2>Details</h2>
+
+<div>
+    <h4>Post</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.postTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.postDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postDesc)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.postUrl)
+        </dt>*@
+
+        @*<dd>
+            @Html.DisplayFor(model => model.postUrl)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.catName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.catName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.userName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.userName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.postId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
